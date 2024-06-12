@@ -1,0 +1,65 @@
+#root {
+  min-width: 100vw;
+  min-height: 100vh;
+  // max-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.site {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  color: #333;
+
+  padding-left: 3em;
+  padding-right: 3em;
+  padding-top: 1.3em;
+  padding-bottom: 1.3em;
+  
+  .site-controls {
+    position: fixed;
+    bottom: 5em;
+    right: 5em;
+    justify-content: right;
+    button {
+      border: solid 3px #ccc;
+      opacity: 0.8;
+    }
+    padding: 1em;
+  }
+
+  .site-content {
+    max-width: 1280px;
+    height: 100%;
+    border: solid thin yellow;
+  }
+}
+
+.site.isPrintMode {
+  .site-content {
+    min-width: 97vw;
+    max-width: 21cm;
+    height: 100%;
+    font-size: calc(1vw + 1vh);
+  }
+}
+
+@media print {
+  .do-not-print {
+    display: none;
+  }
+  .site {
+    display: block;
+  }
+  @page {
+    size: 21cm 29.7cm;
+    margin: 16mm 32mm 16mm 32mm;
+  }
+  .printA4 {
+    width: 100vw;
+    height: 100vh;
+  }
+}
