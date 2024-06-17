@@ -1,0 +1,19 @@
+
+// == Focus interactions ==
+.focus-only {
+  display: none;
+}
+.isFocused .focus-only {
+  display: block;
+}
+.isFocusable {
+  cursor: pointer;
+}
+
+// == Bug msgs ==
+.bug,div.bug,span.bug,ul.bug {
+  display: none;
+}
+div.showbugs .bug {
+  display: block;
+}

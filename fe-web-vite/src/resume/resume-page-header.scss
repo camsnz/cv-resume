@@ -1,0 +1,76 @@
+
+div.resumeDocument .page-header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    & > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+
+    .avatar-header {
+        .content {
+            top: 0;
+            left: 0;
+            position: absolute;
+            z-index: $z-index-content;
+
+            border: solid calc($avatar-size/2) gray;
+            border-radius: calc($avatar-size/2);
+            min-width: 0;
+            min-height: 0;
+            max-width: 0;
+            max-height: 0;
+            margin: 1rem;
+        }
+
+        .bg-facade {
+            display: block;
+            transform: rotate3d(0, 0, 1, -35deg) scale3d(10, 10, 1) translate3d(0, -55%, 0);
+            background-color: darkorange;
+            opacity: $layer-opacity;
+        }
+    }
+
+    .contact-header {
+        .content {
+            // layout
+            top: 0;
+            right: 0;
+            position: absolute;
+            z-index: $z-index-content;
+            text-align: left;
+            min-width: 35%;
+
+            // typesetting
+            display:grid;
+            grid-template-columns: max-content max-content;
+            grid-gap:1rem;
+
+            color: white;
+        }
+        .bg-facade {
+            // layout
+            display: block;
+            transform: rotate3d(0, 0, 1, calc(18deg)) scale3d(10, 10, 1) translate3d(0, -40%, 0);
+            background-color: darkcyan;
+            opacity: $layer-opacity;
+        }
+    }
+
+    .person-name-header {
+        position: absolute;
+        top: $header-size;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        position: relative;
+        overflow: visible;
+    }
+
+}

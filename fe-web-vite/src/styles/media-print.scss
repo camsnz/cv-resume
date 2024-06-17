@@ -1,0 +1,44 @@
+
+@page {
+  // size: 21cm 29.7cm;
+  size: a4 portrait;
+  margin: 0;
+}
+
+@mixin printModeMixin() {
+    padding: 0;
+    margin: 0;
+    border: 0;
+
+    .isFocusable {
+      cursor: default;
+    }
+    div.resumeDocument .page-content {
+      .meta.pane {
+          min-width: 25%;
+      }
+      .main.pane {
+        
+      }
+  }
+}
+
+.app.isPrintMode {
+  @include printModeMixin();
+}
+
+@media print {
+  .app {
+    @include printModeMixin();
+  }
+  .do-not-print {
+    display: none;
+  }
+  .site {
+    display: block;
+  }
+  .isPrintMode {
+    width: 100vw;
+    height: 100%;
+  }
+}

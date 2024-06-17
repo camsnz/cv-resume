@@ -1,0 +1,14 @@
+$max-width: 1280px;
+
+$base-size: calc(1vw + 1vh);
+$font-size: $base-size;
+
+$pres-size: calc($base-size * 8);
+$avatar-size: calc($pres-size);
+
+$header-size: calc($pres-size + 1rem);
+$body-margin: calc($header-size + 1rem);
+
+$color-paper: #eee;
+$color-meta-pane: lightgray;
+$color-btn-trim: #ddf;

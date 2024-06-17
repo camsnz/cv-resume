@@ -36,23 +36,12 @@ const Section = ({section}:SectionProps) => {
 type ProfileProps = { profile: PersonalInfo };
 const Profile = ({profile}:ProfileProps) => {
     return <div className="profile">
-        {/* <h1>{profile.name}</h1>
-        <h2>{profile.title}</h2>
-        <div className="contact">
-            <div className="email">{profile.contact.email}</div>
-            <div className="phone">{profile.contact.phone}</div>
-            <div className="address">{profile.contact.address}</div>
-            <div className="website">{profile.contact.website}</div>
-        </div> */}
-        {profile.sections.map((section, n) => <Section key={n} section={section} />)}
+        {profile.sections.map((section, n) =>
+            <Section key={n} section={{...section, depth: 1}} />
+        )}
     </div>
 }
 
-const BackDrop = () => <div className="backdrop">
-    <div className="bd3"/>
-    <div className="bd1"/>
-    <div className="bd2"/>
-    </div>;
 type WorkHistoryProps = { history: JobTenure[] };
 
 type JobTenureBlockProps = { job: JobTenure };
@@ -77,33 +66,62 @@ const WorkHistory = ({history}:WorkHistoryProps) => <div className="work-history
     )}
 </div>;
 
-const NameHeader = ({name}:{name:string}) => <div className="name-header"><h1>{name}</h1></div>;
+const AvatarHeader = () => <div className="avatar-header">
+        <div className="content">
+            <span>x</span>
+        </div>
+        <div className="bg-facade" />
+</div>;
+const PersonNameHeader = ({name}:{name:string}) => <div className="person-name-header"><h1>{name}</h1></div>;
 const ContactHeader = ({contactInfo}:{contactInfo:PersonalInfo}) => {
     const [isFocused, setIsFocused] = useState(false);
     const toggFocus = () => setIsFocused(!isFocused);
     const classes = classNames("contact-header is-focusable", {isFocused});
     return <div className={classes} onClick={toggFocus}>
+        {/* <h4 className="person-name focus-only">{contactInfo.name}</h4> */}
+        <div className="content">
+            <ul>
+                <li><label>P</label><span className="value" aria-description="Phone Number">{contactInfo.contact.phone}</span></li>
+                <li><label>E</label><span className="value" aria-description="Email">{contactInfo.contact.email}</span></li>
+                <li><label>W</label><span className="value" aria-description="Website">{contactInfo.contact.website}</span></li>
+                <li><label>A</label><span className="value" aria-description="Physical Address">{contactInfo.contact.address}</span></li>
+            </ul>
+        </div>
         <div className="bg-facade" />
-        <h4 className="person-name focus-only">{contactInfo.name}</h4>
-        <ul>
-            <li><label>P</label><span aria-description="Phone Number">{contactInfo.contact.phone}</span></li>
-            <li><label>E</label><span aria-description="Email">{contactInfo.contact.email}</span></li>
-            <li><label>W</label><span aria-description="Website">{contactInfo.contact.website}</span></li>
-            <li><label>A</label><span aria-description="Physical Address">{contactInfo.contact.address}</span></li>
-        </ul>
     </div>;
 }
 const IndexPanel = ({title}:{title:string}) => <h2>{title}</h2>;
 const MainContent = ({title}:{title:string}) => <h2>{title}</h2>;
 
+type MetaPaneProps = { groups: DocSection[] };
+const MetaPane = ({groups}:MetaPaneProps) => {
+    const [isFocused, setIsFocused] = useState(false);
+    const toggFocus = () => setIsFocused(!isFocused);
+    return <div className={classNames("meta pane isFocusable",{isFocused})} onClick={toggFocus}>
+        {groups.map((group, n) => <Section key={n} section={{...group, depth:4}} />)}
+    </div>;
+}
+
 type ResumeProps = { isPrintMode?: boolean };
 export const Resume = ({isPrintMode=false}:ResumeProps) => {
-    const classes = classNames("resumeDocument", {printA4: isPrintMode});
+    const classes = classNames("resumeDocument", {isPrintMode});
     return <div className={classes}>
-        <BackDrop />
-        <NameHeader name={camScott2024.info.name} />
-        <ContactHeader contactInfo={camScott2024.info} />
-        <Profile profile={camScott2024.info} />
+        <div className="page-header page-break">
+            <div>
+                <AvatarHeader />
+                <ContactHeader contactInfo={camScott2024.info} />
+            </div>
+            <PersonNameHeader name={camScott2024.info.name} />
+        </div>
+
+        <div className="page-content page-break">
+            <MetaPane groups={camScott2024.groups} />
+            <div className="main pane">
+                <Profile profile={camScott2024.info} />
+                <WorkHistory history={camScott2024.history} />
+            </div>
+        </div>
         <WorkHistory history={camScott2024.history} />
+        <h1>End of document</h1>
     </div>
 }
