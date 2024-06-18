@@ -10,6 +10,7 @@ export type Profile2024 = {
     info: PersonalInfo;
     groups: DocSection[];
     history: JobTenure[];
+    education: EducationItem[];
 }
 
 export type PersonalInfo = {
@@ -19,6 +20,7 @@ export type PersonalInfo = {
         email: string;
         phone: string;
         address: string;
+        linkedin: string;
         website: string;
     };
     sections: DocSection[];
@@ -46,4 +48,16 @@ export type JobTenure = {
     accomplishments: string[];
     summaryOnly?: boolean;
     ignore?: boolean;
+};
+
+export type EducationItem = {
+    institution: {
+        id: string;
+        name: string;
+        location: string;
+        website: string;
+    };
+    qualification: string;
+    start: DateString;
+    end: DateString;
 };
