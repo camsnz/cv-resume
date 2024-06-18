@@ -10,5 +10,15 @@ $header-size: calc($pres-size + 1rem);
 $body-margin: calc($header-size + 1rem);
 
 $color-paper: #eee;
-$color-meta-pane: lightgray;
+$color-bg-meta-pane: lightgray;
 $color-btn-trim: #ddf;
+
+$color-content: $color-paper;
+$color-content-border: gray;
+
+$color-facade-01: rgb(22, 68, 115);
+// $color-facade-01: rgb(71 77 44);
+$color-facade-02: rgb(200, 100, 0);
+$color-facade-02: rgb(71 77 44);
+$color-facade-03: rgb(211, 211, 211);
+

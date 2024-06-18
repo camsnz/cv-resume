@@ -20,19 +20,25 @@ div.resumeDocument .page-header {
             position: absolute;
             z-index: $z-index-content;
 
-            border: solid calc($avatar-size/2) gray;
+            border: solid calc($avatar-size/2) $color-content-border;
             border-radius: calc($avatar-size/2);
             min-width: 0;
             min-height: 0;
             max-width: 0;
             max-height: 0;
             margin: 1rem;
+            img {
+                width: $avatar-size;
+                height: $avatar-size;
+                border-radius: calc($avatar-size/2);
+                transform: translate3d(-50%, -50%, 0);
+            }
         }
 
         .bg-facade {
             display: block;
             transform: rotate3d(0, 0, 1, -35deg) scale3d(10, 10, 1) translate3d(0, -55%, 0);
-            background-color: darkorange;
+            background-color: $color-facade-02;
             opacity: $layer-opacity;
         }
     }
@@ -40,25 +46,46 @@ div.resumeDocument .page-header {
     .contact-header {
         .content {
             // layout
+            min-width: 40%;
+            position: absolute;
             top: 0;
             right: 0;
-            position: absolute;
-            z-index: $z-index-content;
-            text-align: left;
-            min-width: 35%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            ul {
+                z-index: $z-index-content;
+                li {
+                    display: grid;
+                    grid-template-columns: 1.9rem max-content;
+                    grid-template-rows: auto;
+                    grid-template-areas: "label value";
+                    line-height: 1.8rem;
+                }
+                label {
+                    grid-area: "label";
+                    align-self: start;
+                    font-family: 'Courier New', Courier, monospace;
+                    // outline: solid thin red;
+                    // margin: auto;
+                    padding-top: 0.1rem;
+                    padding-bottom: 0.1rem;
+                }
+                span.value {
+                    grid-area: "value";
+                    // margin: auto;
+                    // outline: solid thin blue;
+                }
+            }
 
             // typesetting
-            display:grid;
-            grid-template-columns: max-content max-content;
-            grid-gap:1rem;
-
-            color: white;
+            color: $color-content;
         }
         .bg-facade {
             // layout
             display: block;
             transform: rotate3d(0, 0, 1, calc(18deg)) scale3d(10, 10, 1) translate3d(0, -40%, 0);
-            background-color: darkcyan;
+            background-color: $color-facade-01;
             opacity: $layer-opacity;
         }
     }

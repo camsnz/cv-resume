@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import {PersonalInfo, DocSection, camScott2024, JobTenure} from "./cam-scott-2024";
+import * as dfns from "date-fns";
 import classNames from "classnames";
 import "./resume.scss"
+import avatarImg from "../avatar.jpeg";
 
 const Bug = ({rf, msg}:{rf:string,msg:string}) => <span className="bug">
     <span className="ref">{rf}</span>
@@ -19,25 +21,26 @@ const HnLevelsMap:{[key:number]:HnLevels} = {
 };
 type HnTitleProps = { depth: number, children: string };
 const HnTitle = ({depth, children}:HnTitleProps) => {
-    return HnLevelsMap[depth] ? React.createElement(HnLevelsMap[depth], null, children) :
+    return HnLevelsMap[depth] ? React.createElement(HnLevelsMap[depth], {className:"title"}, children) :
     <Bug rf="HnLevelsMap" msg={`HnTitle depth is ${depth}, no level match`}/>;
 }
 
-type SectionProps = { section: DocSection };
-const Section = ({section}:SectionProps) => {
-    return <div className="section">
-        { section.title && <HnTitle depth={section.depth||0}>{section.title}</HnTitle> }
+type SectionProps = { section: DocSection, className?: string };
+const Section = ({section, className}:SectionProps) => {
+    const show = section.content && section.content.length > 0;
+    return !show ? <></> : <div className={classNames("section", className)}>
+        { section.title && <HnTitle depth={section.depth||4}>{section.title}</HnTitle> }
         { section.content && <ul>
             { section.content.map((content, n) => <li key={n}>{content}</li>) }
         </ul> }
     </div>;
 }
 
-type ProfileProps = { profile: PersonalInfo };
-const Profile = ({profile}:ProfileProps) => {
-    return <div className="profile">
+type ProfileProps = { profile: PersonalInfo, className: string };
+const Profile = ({profile, className}:ProfileProps) => {
+    return <div className={classNames("profile",className)}>
         {profile.sections.map((section, n) =>
-            <Section key={n} section={{...section, depth: 1}} />
+            <Section key={n} className="profile-item" section={{...section, depth: 2}} />
         )}
     </div>
 }
@@ -45,19 +48,35 @@ const Profile = ({profile}:ProfileProps) => {
 type WorkHistoryProps = { history: JobTenure[] };
 
 type JobTenureBlockProps = { job: JobTenure };
-const JobTenureBlock = ({job}:JobTenureBlockProps) => <div className="job-tenure">
-    <h3>{job.employer.name}</h3>
-    <h4>{job.title}</h4>
-    <div>
-        <span className="start">{job.start}</span>
-        <span className="end">{job.end}</span>
+
+const fmtJobDate = (date:string) => dfns.format(date, "LLL Y")
+
+const JobTenureBlock = ({job}:JobTenureBlockProps) => <div className={classNames("job-tenure", {summary: job.summaryOnly})}>
+    <div className="header">
+        <div className="title">
+            <h4>{job.title}</h4>
+            <h3>{job.employer.name}</h3>
+        </div>
+        <div className="time-period">
+            <span className="start">{fmtJobDate(job.start)}</span> - <span className="end">{fmtJobDate(job.end)}</span>
+        </div>
     </div>
-    <div className="description">{job.description}</div>
-    <div className="technology">{job.technology}</div>
-    <div className="accomplishments">{job.accomplishments}</div>
+    <Section key={"description"} className="description" section={{title: "", content: job.description}} />
+    <Section key={"accomplishments"} className="accomplishments" section={{title: "Accomplishments", content: job.accomplishments}} />
+    <Section key={"technology"} className="technology" section={{title: "Technology", content: job.technology}} />
+    {/* <div className="technology">
+        <h4>Technology</h4>
+        <ul></ul>
+        {job.technology.map(tech => <span className="tech">{tech}</span>)}
+    </div>
+    <div className="description">{job.description}
+        <h4>Technology</h4>
+    </div>
+    <div className="accomplishments">{job.accomplishments}</div> */}
 </div>;
 
 const WorkHistory = ({history}:WorkHistoryProps) => <div className="work-history">
+    <h2>Experience</h2>
     {history.map((job, n) => {
         return <div key={n} className="JobTenure">
                 <JobTenureBlock job={job} />
@@ -68,7 +87,7 @@ const WorkHistory = ({history}:WorkHistoryProps) => <div className="work-history
 
 const AvatarHeader = () => <div className="avatar-header">
         <div className="content">
-            <span>x</span>
+            <img src={avatarImg}></img>
         </div>
         <div className="bg-facade" />
 </div>;
@@ -84,7 +103,7 @@ const ContactHeader = ({contactInfo}:{contactInfo:PersonalInfo}) => {
                 <li><label>P</label><span className="value" aria-description="Phone Number">{contactInfo.contact.phone}</span></li>
                 <li><label>E</label><span className="value" aria-description="Email">{contactInfo.contact.email}</span></li>
                 <li><label>W</label><span className="value" aria-description="Website">{contactInfo.contact.website}</span></li>
-                <li><label>A</label><span className="value" aria-description="Physical Address">{contactInfo.contact.address}</span></li>
+                <li><label>L</label><span className="value" aria-description="Location">{contactInfo.contact.address}</span></li>
             </ul>
         </div>
         <div className="bg-facade" />
@@ -106,7 +125,7 @@ type ResumeProps = { isPrintMode?: boolean };
 export const Resume = ({isPrintMode=false}:ResumeProps) => {
     const classes = classNames("resumeDocument", {isPrintMode});
     return <div className={classes}>
-        <div className="page-header page-break">
+        <div className="page-header">
             <div>
                 <AvatarHeader />
                 <ContactHeader contactInfo={camScott2024.info} />
@@ -117,11 +136,9 @@ export const Resume = ({isPrintMode=false}:ResumeProps) => {
         <div className="page-content page-break">
             <MetaPane groups={camScott2024.groups} />
             <div className="main pane">
-                <Profile profile={camScott2024.info} />
+                <Profile profile={camScott2024.info} className="page-break" />
                 <WorkHistory history={camScott2024.history} />
             </div>
         </div>
-        <WorkHistory history={camScott2024.history} />
-        <h1>End of document</h1>
     </div>
 }

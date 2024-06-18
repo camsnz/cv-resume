@@ -3,6 +3,7 @@
   // size: 21cm 29.7cm;
   size: a4 portrait;
   margin: 0;
+  // padding-top: 2cm;
 }
 
 @mixin printModeMixin() {
@@ -15,11 +16,18 @@
     }
     div.resumeDocument .page-content {
       .meta.pane {
-          min-width: 25%;
+        min-width: 20%;
+        max-width: 20%;
       }
       .main.pane {
         
       }
+  }
+  .page-break {
+    page-break-after: always;
+    // &::after {
+    //   padding-top: 2cm;
+    // }
   }
 }
 
@@ -40,5 +48,15 @@
   .isPrintMode {
     width: 100vw;
     height: 100%;
+  }
+
+  @page {
+    // size: 21cm 29.7cm;
+    size: a4 portrait;
+    margin: 0;
+    // padding-top: 2cm;
+    @top-right {
+      content: "Page " counter(pageNumber);
+    }
   }
 }

@@ -13,6 +13,8 @@ $layer-opacity: 1;
 @import "./resume-page-header.scss";
 @import "./resume-page-content.scss";
 
+@import "./resume-work-history.scss";
+
 div.resumeDocument {
     display: flex;
     flex-direction: column;
