@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { useState } from "react";
 import { PersonalInfo, Profile2024 } from "../types";
 
-import avatarImg from "../avatar.jpeg";
+import avatarImg from "_src/avatar.jpeg";
 
 
 const AvatarHeader = () => <div className="avatar-header">
