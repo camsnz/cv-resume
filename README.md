@@ -7,3 +7,5 @@ Monorepo FE & BE Resume & Tech Stack Demo.
  - nixos Docker for base tooling
  - vite ts-react front end
 
+## Getting Started
+

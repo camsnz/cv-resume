@@ -3,7 +3,7 @@
 { pkgs ? import <nixpkgs> {} }:
 
 pkgs.stdenv.mkDerivation rec {
-    name = "react-demo";
+    name = "resume-site";
     buildInputs = [
         pkgs.nodejs
         pkgs.corepack

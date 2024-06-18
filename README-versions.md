@@ -2,12 +2,15 @@
 Most recent first.
 
 ## v1: PDF, web, essential details.
-Very basic but useful first build, tightening up after some experiments which can see use in other projects.
+Very basic first build, tightening up after some experiments. Some of which can see use in other projects.
 ```
-[ ] cv content
-[ ] pdf layout
+[x] cv content
+[ ] missing Education Block
+[ ] missing linkedin ref
+[ ] github self-ref
+[ ] final pdf layout
 [ ] deployment
-[ ] VERY rudimentary test structure
+[x] VERY rudimentary test structure
 ```
 
 ### Pulled Features & Fixes
