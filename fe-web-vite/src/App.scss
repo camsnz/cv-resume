@@ -18,10 +18,17 @@
     position: fixed;
     bottom: 2.5rem;
     right: 2.5rem;
-    justify-content: right;
+
+    div.btns {
+      display: flex;
+      flex-direction: row;
+      justify-content: right;
+    }
+
     font-size: 1.3rem;
     z-index: 1000;
     button {
+      align-items: flex-end;
       border: solid 3px $color-btn-trim;
       opacity: 0.8;
       &:hover {

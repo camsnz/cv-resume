@@ -66,15 +66,11 @@ div.resumeDocument .page-header {
                     grid-area: "label";
                     align-self: start;
                     font-family: 'Courier New', Courier, monospace;
-                    // outline: solid thin red;
-                    // margin: auto;
                     padding-top: 0.1rem;
                     padding-bottom: 0.1rem;
                 }
                 span.value {
                     grid-area: "value";
-                    // margin: auto;
-                    // outline: solid thin blue;
                 }
             }
 

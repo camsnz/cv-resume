@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import {PersonalInfo, DocSection, camScott2024, JobTenure} from "./cam-scott-2024";
 import * as dfns from "date-fns";
 import classNames from "classnames";
+
+import {PersonalInfo, DocSection, JobTenure} from "./types";
+import {camScott2024} from "./cam-scott-2024";
+
 import "./resume.scss"
 import avatarImg from "../avatar.jpeg";
 

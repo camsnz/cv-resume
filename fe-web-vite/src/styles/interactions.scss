@@ -10,7 +10,25 @@
   cursor: pointer;
 }
 
-// == Bug msgs ==
+// == Fast and loose msg features ==
+.experimental-msg {
+  background-color: rgb(134, 10, 10, 0.8);
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+  button {
+    margin-left: 1rem;
+    background-color: rgb(134, 10, 10, 0.8);
+    color: white;
+    border: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
 .bug,div.bug,span.bug,ul.bug {
   display: none;
 }
