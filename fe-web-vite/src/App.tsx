@@ -11,9 +11,9 @@ function App() {
   const doPrint = () => window.print();
   return (
     <div className={classNames("app", {isPrintMode})}>
-      {!isExpMode && <div className="app-controls"><button onClick={toggExpMode}>Enable Experiments</button></div>}
-      {isExpMode && <div>
-          <div className={"app-controls do-not-print"}>
+      {!isExpMode && <div className="app-controls do-not-print"><button onClick={toggExpMode}>Enable Experiments</button></div>}
+      {isExpMode && <div className="do-not-print">
+          <div className={"app-controls"}>
             <div className="btns">
               {isPrintMode && <button onClick={doPrint}>Print</button>}
               <button onClick={toggPrintMode}>{isPrintMode ? "Exit Print Preview":"Show Print Preview"}</button>
@@ -25,13 +25,8 @@ function App() {
           </div>
         </div>
       }
+      
       <div className='app-content'>
-        {isPrintMode &&
-        <>
-          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-          hello
-          </>
-        }
         <Resume isPrintMode />
       </div>
     </div>

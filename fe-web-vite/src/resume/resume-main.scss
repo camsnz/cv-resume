@@ -1,8 +1,10 @@
 
 div.resumeDocument .page-content {
+    &::after {
+        content: "_";
+    }
     .main {
         padding: 1rem;
-        // background-color: red;
         width: 100%;
 
         ul {
@@ -11,5 +13,13 @@ div.resumeDocument .page-content {
         li {
             padding-bottom: 0.5rem;
         }
+        
+        h2 {
+            // border-top: solid thick rgb(0, 0, 80);
+            // font-size: 1.2rem;
+            padding: 0.8rem 0 0.4rem 0;
+            margin: 0.2rem 0 0.1rem 0;
+        }
+
     }
 }

@@ -5,6 +5,9 @@ $layer-opacity: 1;
 
 @import "../styles/constants.scss";
 
+@import "./resume-block-header.scss";
+@import "./resume-education.scss";
+
 @import "./resume-facades.scss";
 
 @import "./resume-main.scss";

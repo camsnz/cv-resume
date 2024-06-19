@@ -1,0 +1,26 @@
+
+div.resumeDocument {
+    h1,h2,h3,h4,h5,h6 {
+        font-weight: bold;
+        margin: 0;
+        padding:0;
+        // padding-left: 1rem;
+    }
+
+    .block-header {
+        display: flex;
+        justify-content: space-between;
+        .title {
+            h4 {
+                font-size: 1.4rem;
+            }
+            h3 {
+                font-size: 1.1rem;
+            }
+        }
+        .time-period {
+            font-size: 1rem;
+        }
+    }
+
+}

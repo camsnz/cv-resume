@@ -46,7 +46,7 @@ div.resumeDocument .page-header {
     .contact-header {
         .content {
             // layout
-            min-width: 40%;
+            min-width: 33%;
             position: absolute;
             top: 0;
             right: 0;
@@ -60,7 +60,7 @@ div.resumeDocument .page-header {
                     grid-template-columns: 1.9rem max-content;
                     grid-template-rows: auto;
                     grid-template-areas: "label value";
-                    line-height: 1.8rem;
+                    line-height: 1.33rem;
                 }
                 label {
                     grid-area: "label";

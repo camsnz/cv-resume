@@ -1,34 +1,6 @@
 
 div.resumeDocument .work-history .job-tenure {
     border-top: solid thin black;
-    h1,h2,h3,h4,h5,h6 {
-        font-weight: bold;
-        margin: 0;
-        padding:0;
-        // padding-left: 1rem;
-    }
-    .header {
-        display: flex;
-        justify-content: space-between;
-        .title {
-            h4 {
-                font-size: 1.4rem;
-                // color: red;
-            }
-            h3 {
-                font-size: 1.1rem;
-                // color: blue;
-            }
-        }
-        .time-period {
-            font-size: 1rem;
-        }
-        // h2 {
-        //     font-size: 1.25rem;
-        //     font-weight: bold;
-        //     margin: 1rem 0;
-        // }
-    }
 
     .section {
         padding-left: 0.9rem;
@@ -75,16 +47,22 @@ div.resumeDocument .work-history .job-tenure {
     }
 }
 
+div.resumeDocument .work-history {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
 div.resumeDocument .work-history .job-tenure {
     &.summary {
-        .header .title {
+        .block-header .title {
             h1,h2,h3,h4,h5,h6 {
-                font-size: 1rem;
+                font-size: 0.8rem;
                 display: inline;
             }
             h3::before {
                 content: " - ";
             }
+            margin: 0.15rem 0;
         }
         .description,.accomplishments {
             display: inline;
@@ -96,14 +74,18 @@ div.resumeDocument .work-history .job-tenure {
             .title {
                 display: none;
             }
-            div, ul, li {
-                width: 100%;
+            ul, li {
                 display: inline;
                 list-style: none;
                 padding: 0;
-                font-size: 1rem;
-                // line-height: 1rem;
             }
         }
+        div, span, ul, li {
+            // color: blue;
+            // width: 100%;
+            font-size: 0.8rem;
+            line-height: 0.8rem;
+        }
+
     }
 }

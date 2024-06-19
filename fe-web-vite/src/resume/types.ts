@@ -58,6 +58,7 @@ export type EducationItem = {
         website: string;
     };
     qualification: string;
+    title: string;
     start: DateString;
     end: DateString;
 };

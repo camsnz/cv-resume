@@ -4,7 +4,6 @@ import { PersonalInfo, Profile2024 } from "../types";
 
 import avatarImg from "_src/avatar.jpeg";
 
-
 const AvatarHeader = () => <div className="avatar-header">
         <div className="content">
             <img src={avatarImg}></img>

@@ -1,6 +1,6 @@
 
 @page {
-  // size: 21cm 29.7cm;
+  size: 21cm 29.7cm;
   size: a4 portrait;
   margin: 0;
   // padding-top: 2cm;
@@ -14,14 +14,15 @@
     .isFocusable {
       cursor: default;
     }
-    div.resumeDocument .page-content {
-      .meta.pane {
-        min-width: 20%;
-        max-width: 20%;
-      }
-      .main.pane {
-        
-      }
+    div.resumeDocument {
+      overflow: visible;
+      .page-content {
+        .meta.pane {
+          min-width: 20%;
+          max-width: 20%;
+        }
+        // .main.pane {}
+    }
   }
   .page-break {
     page-break-after: always;
@@ -39,7 +40,7 @@
   .app {
     @include printModeMixin();
   }
-  .do-not-print {
+  .do-not-print,.app-controls {
     display: none;
   }
   .site {
@@ -50,13 +51,14 @@
     height: 100%;
   }
 
+  html,body,#root,.app,.app-content {
+    overflow: visible;
+  }
+
   @page {
-    // size: 21cm 29.7cm;
+    size: 21cm 29.7cm;
     size: a4 portrait;
     margin: 0;
     // padding-top: 2cm;
-    @top-right {
-      content: "Page " counter(pageNumber);
-    }
   }
 }
