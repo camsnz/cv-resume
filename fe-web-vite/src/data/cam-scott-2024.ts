@@ -10,14 +10,15 @@ export const camScott2024:Profile2024 = {
             phone: "+64 (0) 22 137 2270",
             address: "Wellington, NZ",
             linkedin: "camsnz",
-            website: "https://cams.nz"
+            github: "camsnz",
+            website: "cams.nz"
         },
         sections: [
             {
                 title: "About Me",
                 content: [
-                    "I've been building software since 2004, across a wide variety of languages, technologies and industries. I simply enjoy solving problems, whether that be low in the details of complex and pernicious financial systems, or the broader solutions architecture and fulfilling the needs of product feature teams.",
-                    "From this, I've built a broad and deep technical experience, with many years building teams and products across banking, fintech and more.",
+                    "I've been building software since 2004, across a wide variety of languages, technologies and industries. I really enjoy solving problems in the small and the large.",
+                    "This has translated to a broad and deep technical experience, with many years building teams and products across banking, fintech and more.",
                     "I prefer environments that enable being hands on with the tools, collaborating on problems, and empower learning amongst teams.",
                 ],
                 subsections:[],
@@ -25,9 +26,9 @@ export const camScott2024:Profile2024 = {
             {
                 title: "Most Recently",
                 content: [
-                    "After returning to NZ in late 2021, I've had the luxury of taking a break, mainly focusing on family. However I am itching to return to building solutions again, especially preferring the steady cadence of working with local teams.",
-                    "My steady interests in tech have always allowed me to stay fresh, but I'm aware of how work gaps can be perceived. So to kick things off I've quickly written this CV with some of the technology I've seen in-demand locally.",
-                    "This first June 2024 version utilises React, TS, SCSS, NodeJS, GCP and Docker, and is visible on github. Based on the Wellington market I expect to add microservice and auth demos with ASP.NET, AWS, OAuth and some modern tooling panache",
+                    "I returned to NZ in 2022 with the luxury of taking a break. I'm now itching to return to building solutions again, especially preferring local teams.",
+                    "I've prepared this CV with some of the technology I've seen in-demand locally, and the source can be viewed on github. This June 2024 version utilises raw React, TS, SCSS, NodeJS and NixOS to produce a PDF, and is visible on github.",
+                    "I'll be adding more polish & tech as I pursue roles - based on the Wellington market: microservices, OAuth, ASP.NET, cloud dataflows and some modern tooling panache",
                     "References available on request.",
                 ],
                 subsections:[],
@@ -36,8 +37,8 @@ export const camScott2024:Profile2024 = {
     },
     groups: [
         {
-            title: "Culture",
-            content: ["Tech Leadership", "Mentoring", "CI Delivery", "Agile", "Scrum", "Kanban"],
+            title: "Systems",
+            content: ["Tech Leadership", "Architecture", "Mentoring", "CI Delivery", "Agile", "Scrum", "Kanban"],
         },
         {
             title: "Languages",
@@ -137,7 +138,7 @@ export const camScott2024:Profile2024 = {
         {
             employer: {
                 id: "dius",
-                name: "DiUS",
+                name: "DiUS | IOOF (Insignia Financial)",
                 industry: "Consulting across Finance, Insurance, Communications",
                 location: "Melbourne VIC Australia",
                 website: "dius.com.au"
@@ -150,9 +151,9 @@ export const camScott2024:Profile2024 = {
                 "Boutique consulting working on organisational change, and cultural development and delivery in technology."
             ],
             accomplishments: [
-                "Greatly improved delivery flow rate and hiring capability, scaling development with tooling that reduced coupling and overhead.",
-                "Delivered infra-as-code config & deploy using docker (pre kubernetes, compose), became a 150+ container per environment system.",
-                "Migrated core-business logic from monolith desktop codebase to microservices.",
+                "Greatly improved delivery flow rate and hiring capability by scaling development with advancements that reduced coupling and overhead.",
+                "Development of infra-as-code config & deploy using docker (pre kubernetes, compose), became a 150+ container per environment system.",
+                "Cross-teams migration of core-business logic from monolith desktop codebase to microservices.",
                 "Talks and coaching on new technologies, ways of working and paradigms.",
             ],
         },
@@ -317,7 +318,7 @@ export const camScott2024:Profile2024 = {
                 industry: "IT | Education",
                 location: "Hamilton NZ",
             },
-            end: "2005-11-31",
+            end: "2005-11-30",
             start: "2004-06-01",
             technology: [ ".NET", "ASP", "C#", "C++" ],
             title: "Junior Developer",
@@ -334,9 +335,10 @@ export const camScott2024:Profile2024 = {
                 location: "Hamilton NZ",
                 website: "waikato.ac.nz"
             },
-            end: "2002-01-01",
-            start: "2005-12-01",
-            qualification: "BCMS | Bachelor of Computer & Mathematical Science",
+            end: "2005-12-01",
+            start: "2002-01-01",
+            qualification: "BCMS",
+            title: "Bachelor of Computer & Mathematical Sciences",
         },
     ],
 };
