@@ -11,16 +11,16 @@ function App() {
   const doPrint = () => window.print();
   return (
     <div className={classNames("app", {isPrintMode})}>
-      {!isExpMode && <div className="app-controls do-not-print"><button onClick={toggExpMode}>Enable Experiments</button></div>}
+      {!isExpMode && <div className="app-controls do-not-print"><button onClick={toggExpMode}>Enter Dev Mode</button></div>}
       {isExpMode && <div className="do-not-print">
           <div className={"app-controls"}>
             <div className="btns">
               {isPrintMode && <button onClick={doPrint}>Print</button>}
-              <button onClick={toggPrintMode}>{isPrintMode ? "Exit Print Preview":"Show Print Preview"}</button>
+              <button onClick={toggPrintMode}>{isPrintMode ? "Hide Print Preview":"Show Print Preview"}</button>
             </div>
             <div className="experimental-msg">
               Note: These are incomplete features, layout, etc.
-              <button onClick={toggExpMode}>Disable</button>
+              <button onClick={toggExpMode}>Exit Dev Mode</button>
             </div>
           </div>
         </div>

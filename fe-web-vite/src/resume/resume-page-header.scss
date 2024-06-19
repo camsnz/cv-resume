@@ -1,4 +1,7 @@
 
+$contact-header-space: 1rem;
+$contact-header-font-size: 0.8rem;
+
 div.resumeDocument .page-header {
     position: relative;
     display: flex;
@@ -46,13 +49,14 @@ div.resumeDocument .page-header {
     .contact-header {
         .content {
             // layout
-            min-width: 33%;
+            min-width: 28%;
             position: absolute;
-            top: 0;
+            top: $contact-header-space;
             right: 0;
             display: flex;
             flex-direction: row;
             justify-content: center;
+            font-size: $contact-header-font-size;
             ul {
                 z-index: $z-index-content;
                 li {
@@ -60,7 +64,19 @@ div.resumeDocument .page-header {
                     grid-template-columns: 1.9rem max-content;
                     grid-template-rows: auto;
                     grid-template-areas: "label value";
-                    line-height: 1.33rem;
+                    line-height: calc($contact-header-font-size * 1.15);
+                    a {
+                        color: $color-content;
+                        // font-family: 'Courier New', Courier, monospace;
+                        &:visited {
+                            color: $color-content;
+                        }
+                        &:hover {
+                            text-decoration: underline;
+                            // text-underline-offset: solid 0.1rem $color-content;
+                            text-shadow: rgb(0, 180, 180, 0.7) 0 0 0.1rem;
+                        }
+                    }
                 }
                 label {
                     grid-area: "label";

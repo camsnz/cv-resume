@@ -1,6 +1,12 @@
 import * as dfns from "date-fns";
 
-const fmtJobDate = (date:string) => dfns.format(date, "LLL y")
+const fmtJobDate = (date:string) => {
+    try {
+        return dfns.format(date, "LLL y")
+    } catch (e) {
+        return date;
+    }
+}
 
 type TimePeriod = {
     start: string;

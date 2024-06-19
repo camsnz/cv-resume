@@ -44,15 +44,3 @@
     height: 100%;
   }
 }
-
-.app.isPrintMode {
-  font-size: $font-size;
-
-  .app-content {
-    max-width: 21cm;
-    height: 100%;
-    font-size: $font-size;
-
-    overflow: hidden;
-  }
-}

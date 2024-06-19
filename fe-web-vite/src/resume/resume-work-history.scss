@@ -52,11 +52,12 @@ div.resumeDocument .work-history {
     margin-bottom: 1rem;
 }
 
+$summary-font-size: 0.7rem;
 div.resumeDocument .work-history .job-tenure {
     &.summary {
         .block-header .title {
             h1,h2,h3,h4,h5,h6 {
-                font-size: 0.8rem;
+                font-size: $summary-font-size;
                 display: inline;
             }
             h3::before {
@@ -68,9 +69,6 @@ div.resumeDocument .work-history .job-tenure {
             display: inline;
             padding: 0;
             margin: 0;
-            ::after {
-                content: " ";
-            }
             .title {
                 display: none;
             }
@@ -83,8 +81,8 @@ div.resumeDocument .work-history .job-tenure {
         div, span, ul, li {
             // color: blue;
             // width: 100%;
-            font-size: 0.8rem;
-            line-height: 0.8rem;
+            font-size: $summary-font-size;
+            line-height: $summary-font-size;
         }
 
     }

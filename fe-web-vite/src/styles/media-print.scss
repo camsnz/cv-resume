@@ -1,11 +1,4 @@
 
-@page {
-  size: 21cm 29.7cm;
-  size: a4 portrait;
-  margin: 0;
-  // padding-top: 2cm;
-}
-
 @mixin printModeMixin() {
     padding: 0;
     margin: 0;
@@ -26,9 +19,13 @@
   }
   .page-break {
     page-break-after: always;
-    // &::after {
-    //   padding-top: 2cm;
-    // }
+  }
+
+  .app-content {
+    font-size: $font-size;
+    max-width: 21cm;
+    min-height: 100%;
+    overflow-x: hidden;
   }
 }
 
@@ -40,25 +37,30 @@
   .app {
     @include printModeMixin();
   }
+  .app,.app.isPrintMode {
+    display: inline;
+  }
   .do-not-print,.app-controls {
     display: none;
   }
   .site {
     display: block;
   }
-  .isPrintMode {
-    width: 100vw;
-    height: 100%;
+  .app div.resumeDocument .page-content {
+    .main.pane,.work-history {
+      padding-bottom: 0.65rem;
+      margin-bottom: 0;
+    }
   }
-
-  html,body,#root,.app,.app-content {
-    overflow: visible;
-  }
+  
+  // .isPrintMode {
+  //   width: 100vw;
+  //   height: 100%;
+  // }
 
   @page {
-    size: 21cm 29.7cm;
-    size: a4 portrait;
+    size: 21cm 29.7cm portrait;
+    // size: A4 portrait;
     margin: 0;
-    // padding-top: 2cm;
   }
 }

@@ -21,6 +21,7 @@ export type PersonalInfo = {
         phone: string;
         address: string;
         linkedin: string;
+        github: string;
         website: string;
     };
     sections: DocSection[];
