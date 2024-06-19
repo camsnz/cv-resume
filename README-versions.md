@@ -5,11 +5,7 @@ Most recent first.
 Very basic first build, tightening up after some experiments. Some of which can see use in other projects.
 ```
 [x] cv content
-[ ] missing Education Block
-[ ] missing linkedin ref
-[ ] github self-ref
-[ ] final pdf layout
-[ ] deployment
+[x] final pdf layout
 [x] VERY rudimentary test structure
 ```
 
@@ -21,11 +17,12 @@ Very basic first build, tightening up after some experiments. Some of which can 
  - Out: facade as bg content | B&W print fade maybe
 
 ### Future Roadmap
+ - UI: css media, typesetting, print corrections
+ - UI: Accessibility, interactions
+ - UI-PDF: headless chrome-print service for render + testing
  - Devops: Docker nixos dev tooling
  - BE: Mixed tech service modules Java | .NET. EG Cloud upload.
  - Auth: OAuth / SAML demo
- - UI: CV Topic / feature interactions
- - UI: CV print interaction demo
 
 
 ## v0: Basic local dev
